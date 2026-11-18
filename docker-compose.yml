@@ -1,0 +1,19 @@
+
+services:
+  client:
+    build: .
+    container_name: dice-client
+    environment:
+      SERVER_URL: http://server:8000/file
+    volumes:
+      - clientvol:/clientdata
+    networks:
+      - dice-net
+
+volumes:
+  clientvol:
+    name: clientvol
+
+networks:
+  dice-net:
+    external: true
